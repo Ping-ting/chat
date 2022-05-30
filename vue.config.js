@@ -3,11 +3,14 @@ module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
   devServer: {
+    open: true,
+    host: 'localhost',
+    port: 8081,
     proxy: {
       '/': {
-        target: 'http://47.108.173.156:12315',
-        ws: true,
-        changeOrigin: true
+        target: 'http://192.168.31.113:8080',
+        changeOrigin: true,
+        ws: false
       }
     }
   }

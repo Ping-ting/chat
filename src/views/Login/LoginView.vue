@@ -13,6 +13,7 @@
       <el-menu-item index="1"><router-link to="/login/notpassword">免密登录</router-link></el-menu-item>
       <el-menu-item index="2"><router-link to="/login/password">密码登录</router-link></el-menu-item>
       <h1> &nbsp; </h1>
+      <h1> &nbsp; </h1>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>

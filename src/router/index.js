@@ -1,65 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/HomeView.vue'
-import Login from '@/views/LoginView.vue'
-import Register from '@/views/RegisterView.vue'
-
-// Login 登录路由子组件路由
-import Password from '@/views/Login/byPassword.vue'
-import NotPassword from '@/views/Login/notByPassword.vue'
-
-// Register 注册路由子组件路由
-import FirstStep from '@/views/Register/FirstStep.vue'
-import SecondStep from '@/views/Register/SecondStep.vue'
-
+import routes from '@/router/routes.js'
 // 导入查询token状态的api
 // import { tokenStatus } from '@/api/token/token.js'
-
 Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-    redirect: '/login/notpassword',
-    children: [
-      {
-        path: 'notpassword',
-        component: NotPassword
-      },
-      {
-        path: 'password',
-        component: Password
-      }
-    ]
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: Register,
-    redirect: '/register/first',
-    children: [
-      {
-        path: 'first',
-        component: FirstStep
-      },
-      {
-        path: 'second',
-        component: SecondStep
-      }
-    ]
-  }
-]
 
 const router = new VueRouter({
   routes

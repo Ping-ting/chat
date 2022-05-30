@@ -3,6 +3,14 @@ import request from '@/utils/request.js'
 //  post 请求需要来设置参数的插件
 const qs = require('qs')
 
+// 测试接口
+export const test = function () {
+  return request.post('/testGet', qs.stringify({
+    Phone: '15665620117'
+  }))
+}
+// Phone=15665620117&State=12
+
 // 发送验证码
 export const sendCode = function (phone) {
   return request.get('/login/sendcode', {
