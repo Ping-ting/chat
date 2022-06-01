@@ -12,6 +12,7 @@
           :auto-scroll="autoScroll"
           :room-actions="roomActions"
           :message-actions="messageActions"
+          :message-selection-actions="messageSelectionActions"
           @send-message="sendMessage"
           @fetch-messages="fetchMessages"
           @edit-message="editMessage"
@@ -96,6 +97,8 @@ export default {
           onlyMe: true
         }
       ],
+      // 消息选择动作
+      messageSelectionActions: [],
       rooms: [
         {
           roomId: 1,
@@ -380,7 +383,7 @@ export default {
     }
   },
   mounted () {
-    console.log('🥰'.charCodeAt(0), String.fromCodePoint(55358))
+    // console.log('🥰'.charCodeAt(0), String.fromCodePoint(55358))
   }
 }
 </script>
@@ -388,8 +391,13 @@ export default {
 <style lang="less" scoped>
 #message-container{
   border-radius: 4px;
+  position: relative;
 }
 /deep/ .vac-box-footer{
   border-bottom-right-radius: 4px;
+}
+/deep/ .picker{
+  position: absolute !important;
+  top: 0 !important;
 }
 </style>

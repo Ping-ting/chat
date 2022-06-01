@@ -29,6 +29,7 @@
 <script>
 import { encryptDes, decryptDes } from '@/utils/des.js'
 import { loginPassword } from '@/api/login/login.js'
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -49,6 +50,23 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('userAbout', ['UPDATE_USER_INFO']),
+    // 成功提示信息
+    successMsg (message) {
+      this.$message({
+        showClose: true,
+        message: message,
+        type: 'success'
+      })
+    },
+    // 失败提示信息
+    errorMsg (message) {
+      this.$message({
+        showClose: true,
+        message: message,
+        type: 'error'
+      })
+    },
     // 登录
     async submitForm (formName) {
       console.log(this.ruleForm)
@@ -69,9 +87,12 @@ export default {
           if (passwordData.code === 0) {
             // 成功
             this.successMsg('登录成功！')
-            // 1.操作 Vuex
+            // 1.操作 Vuex 填写token
             // 2.连接
             // 3.跳转 home 并且提示
+            this.UPDATE_USER_INFO(passwordData.user)
+            localStorage.setItem('chatToken', passwordData.token)
+            location.hash = '/home'
           } else {
             this.errorMsg('手机号或密码错误！')
           }

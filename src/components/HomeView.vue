@@ -49,17 +49,18 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
+    min-width: 1000px;
+    min-height: 600px;
     background: url(@/assets/image/homeBgc01.jpg) no-repeat;
     background-size: cover;
   }
   #home-container{
     width: 950px;
-    min-width: 950px;
     height: 600px;
     // 水平垂直居中
     position: absolute;
-    top: 50vh;
-    left: 50vw;
+    top: 50%;
+    left: 50%;
     transform: translateX(-50%) translateY(-50%);
     // 背景模糊
     backdrop-filter: blur(10px);

@@ -5,11 +5,10 @@ const qs = require('qs')
 
 // 测试接口
 export const test = function () {
-  return request.post('/testGet', qs.stringify({
+  return request.get('/testGet', qs.stringify({
     Phone: '15665620117'
   }))
 }
-// Phone=15665620117&State=12
 
 // 发送验证码
 export const sendCode = function (phone) {

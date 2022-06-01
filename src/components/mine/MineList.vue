@@ -14,6 +14,7 @@
           <p class="friend-nickname">
             新朋友
           </p>
+          <div class="no-read">99+</div>
         </div>
       </div>
       <!-- 群通知 -->
@@ -23,6 +24,7 @@
           <p class="friend-nickname">
             群通知
           </p>
+          <div class="no-read">12</div>
         </div>
       </div>
       <!-- 我的资料 -->
@@ -314,6 +316,17 @@ export default {
 }
 .contact-item-active{
   background-color: rgba(235, 235, 235, 0.7);
+}
+.no-read{
+  position: absolute;
+  top: 35%;
+  left: 60%;
+  background-color: #F56C6C;
+  color: #fff;
+  min-width: 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 12px;
 }
 .list-each-right{
   width: 80%;

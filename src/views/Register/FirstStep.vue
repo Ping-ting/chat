@@ -119,23 +119,29 @@ export default {
       // 通过验证后，需要手动隐藏模态框
       this.verifyDialogVisible = false
       // 发起请求获取验证码
-      const { data: sendCodeData } = await sendCode(this.ruleForm.phoneNumber)
-      console.log('注册发送验证码响应数据：', sendCodeData)
-      if (sendCodeData.code === 0) {
-        // 成功
-        this.successMsg('验证码发送成功！')
-        // 修改页面样式
-        const timer = setInterval(() => {
-          this.codeSec = this.codeSec - 1
-          this.codeMsg = this.codeSec + 's后重试'
-          this.showBtn = false
-          if (this.codeSec === 0) {
-            clearInterval(timer)
-            this.codeSec = 60
-            this.showBtn = true
-          }
-        }, 1000)
-      } else {
+      try {
+        console.log(this.ruleForm.phoneNumber)
+        const { data: sendCodeData } = await sendCode(this.ruleForm.phoneNumber)
+        console.log('注册发送验证码响应数据：', sendCodeData)
+        if (sendCodeData.code === 0) {
+          // 成功
+          this.successMsg('验证码发送成功！')
+          // 修改页面样式
+          const timer = setInterval(() => {
+            this.codeSec = this.codeSec - 1
+            this.codeMsg = this.codeSec + 's后重试'
+            this.showBtn = false
+            if (this.codeSec === 0) {
+              clearInterval(timer)
+              this.codeSec = 60
+              this.showBtn = true
+            }
+          }, 1000)
+        } else {
+          this.errorMsg('发送失败，请稍候再试！')
+        }
+      } catch (e) {
+        console.log(e)
         this.errorMsg('发送失败，请稍候再试！')
       }
     },

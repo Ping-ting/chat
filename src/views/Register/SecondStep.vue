@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import registerSecond from '@/api/register/register.js'
+import { registerSecond } from '@/api/register/register.js'
 
 export default {
   data () {
@@ -105,6 +105,7 @@ export default {
       })
     },
     async submitForm (formName) {
+      console.log(this.$refs[formName])
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           // 发送请求设置密码

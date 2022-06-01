@@ -9,7 +9,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import ChatWindow from 'vue-advanced-chat'
 import 'vue-advanced-chat/dist/vue-advanced-chat.css'
-// import Antd from 'ant-design-vue'
 import AutoComplete from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 
@@ -19,7 +18,6 @@ import 'ant-design-vue/dist/antd.css'
 Vue.use(ElementUI)
 Vue.use(ChatWindow)
 Vue.use(AutoComplete)
-// Vue.use(Antd)
 // Vue.use(
 //   new VueSocketIO({
 //     connection: '/socket'

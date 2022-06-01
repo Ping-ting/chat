@@ -12,14 +12,13 @@ const userOptions = {
       State: 'offline',
       Slogan: '这个人很懒，什么也没有留下',
       Gender: '女',
-      Address: '陕西 西安',
+      Address: '陕西-西安',
       Job: '学生',
       Phone: '15665620118',
       Birthday: '2002-02-19'
     }
   },
   actions: {
-
   },
   mutations: {
     // 登录 登出
@@ -31,6 +30,7 @@ const userOptions = {
     },
     // 更新user信息 移除user信息
     UPDATE_USER_INFO (state, value) {
+      console.log('UPDATE_USER_INFO', value)
       state.userInfo = _.cloneDeep(value)
     },
     REMOVE_USER_INFO (state, value) {

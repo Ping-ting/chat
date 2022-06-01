@@ -2,7 +2,7 @@ const mineOptions = {
   namespaced: true, // 开启命名空间
   state: {
     // 当前选中类型 empty friendMsg groupMsg myInfo changeInfo
-    type: 'groupMsg',
+    type: 'empty',
     friendMessages: [
       {
         id: '312412',
